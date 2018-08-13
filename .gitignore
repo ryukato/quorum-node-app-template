@@ -1,0 +1,4 @@
+logs/
+logs*/
+build/
+node_modules/
