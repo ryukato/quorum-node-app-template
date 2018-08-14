@@ -1,5 +1,5 @@
 const testContract = {
-  "address": "0xe971110e3d9ace8cd4921e9254bcacdb825b6ecc",
+  "address": "0x544b3d6a78df6cb8a4f30d63778da262253ebc32",
   "abi": [
     {
       "constant": false,

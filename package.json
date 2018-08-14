@@ -10,6 +10,8 @@
     "compile:app": "babel src --out-dir build",
     "compile:contracts": "truffle compile",
     "build:app": "webpack --mode development --config webpack.config.js",
+    "test:contractjs-in-memory": "truffle test ./test/contracts/*.test.js --network in_memory",
+    "test:contract-in-memory": "CONTRACTS='testContract' truffle test ./test/contracts/*.sol --network in_memory",
     "test:app": "DEBUG='DEBUG' nyc --reporter=html mocha --require babel-core/register --colors ./test/api/*.spec.js --inspect",
     "deploy:contract-local": "rm -rf build/contracts/* && CONTRACT_FORCE_DEPLOY=true truffle migrate --network local",
     "coverage": "nyc report --reporter=text-lcov | coveralls"

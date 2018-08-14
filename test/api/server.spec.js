@@ -23,7 +23,7 @@ describe('Api Server test', () => {
 
     setTimeout(() => {
       console.log('server isRunning1: ', apiServer.isRunning());
-      apiServer.stop();
+      apiServer.stopServer();
     }, 500);
 
     apiServer.startServer();
