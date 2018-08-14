@@ -21,7 +21,7 @@ Ethereum 혹은 Quorum과 같이 스마트 컨트랙트를 제공하는 블록�
 ### 코드 받기
 원격 Git 저장소에서 본 프로젝트의 코드를 받는다. 아래의 명령어를 통해 해당 코드들을 받을 수 있다.
 
-`git clone http://169.56.90.134:3000/ryukato/quorum-node-backend-app-template.git`
+`git clone [repo 주소]`
 
 ### 필요 라이브러리 설치
 애플리케이션 개발과 실행을 위해서 반드시 설치해야 하는 라이브러리들을 있다. 이들 라이브러리들은 `package.json`에 선언되어 있으며, 아래의 명령어를 통해 설치할 수 있다.
