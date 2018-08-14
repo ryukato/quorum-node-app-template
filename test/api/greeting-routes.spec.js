@@ -11,7 +11,7 @@ import chai from 'chai';
 
 const assert = chai.assert;
 
-import GreetingRoutes from '../../src/api/routes/greeting-routes';
+import GreetingRoutes from '../../src/routes/greeting-routes';
 
 describe('Create GreetingRoutes', () => {
   it('should fail to create GreetingRoutes, since invalid controller', () => {
@@ -44,8 +44,8 @@ describe('GreetingRoutes test', () => {
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(bodyParser.json());
 
-    const GreetingRoutes = proxyquire('../../src/api/routes/greeting-routes.js', {});
-    const greetController = require('../../src/api/controllers/greet-controller');
+    const GreetingRoutes = proxyquire('../../src/routes/greeting-routes.js', {});
+    const greetController = require('../../src/controllers/greet-controller');
 
     router = new GreetingRoutes({}, greetController);
     router.register(app);

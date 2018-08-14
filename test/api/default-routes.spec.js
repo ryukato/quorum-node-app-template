@@ -17,7 +17,7 @@ describe('Default routes test', () => {
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(bodyParser.json());
 
-    const DefaultRouter = proxyquire('../../src/api/routes/default-routes.js', {});
+    const DefaultRouter = proxyquire('../../src/routes/default-routes.js', {});
 
     defaultRouter = new DefaultRouter({});
     defaultRouter.register(app);

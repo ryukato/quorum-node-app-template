@@ -1,5 +1,5 @@
 import AppServer from './server.js';
-import DefaultRouter from './api/routes/default-routes.js';
+import DefaultRouter from './routes/default-routes.js';
 
 const routers = [DefaultRouter];
 const apiServer = new AppServer();
