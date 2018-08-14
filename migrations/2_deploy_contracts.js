@@ -21,6 +21,21 @@ function writeFile(_path, _content) {
   );
 }
 
+function getContractFilesNames(contractDirPath) {
+  console.info(`Get Contract files from ${contractDirPath}`);
+  const contractFiles = [];
+  if (!fs.existsSync(contractDirPath)) {
+    console.warn(`There is no contracts files in ${contractDirPath}`);
+    return contractFiles;
+  }
+
+  fs.readdirSync(contractDirPath).filter(f => path.extname(f) === '.sol' && f !== 'Migrations.sol').forEach(f => {
+    console.log(`\tFound contract file: ${f}`);
+    contractFiles.push(f);
+  });
+  return contractFiles;
+}
+
 function buildContractJson(contractTx) {
   return {
     "address": contractTx.address,
@@ -72,11 +87,11 @@ function deployContract(deployer, contractObj, network, contractName) {
 }
 
 module.exports = function(deployer, network) {
-  const contracts = process.env.CONTRACTS ? process.env.CONTRACTS.split(",").map(c => c.trim()) : [];
+  let contracts = process.env.CONTRACTS ? process.env.CONTRACTS.split(",").map(c => c.trim()) : [];
 
   if (!contracts || contracts.length < 1) {
-    console.warn("No smart contracts to deploy, you need pass name of contract by 'CONTRACTS=\"contract1, contract2\"'");
-    return;
+    console.warn("No smart contracts to deploy, you need pass name of contract so search default path ");
+    contracts = getContractFilesNames(path.resolve(__dirname, '../contracts')).map(f => f.split(".")[0]);
   }
 
   contracts.forEach(c => {

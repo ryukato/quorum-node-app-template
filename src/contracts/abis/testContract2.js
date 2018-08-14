@@ -1,5 +1,5 @@
-const testContract = {
-  "address": "0x73c4666c0f0343edb6477323a18bdd9409a69fd3",
+const testContract2 = {
+  "address": "0xd0c3714b77a662a695b8ac86424d34a8b6d10a77",
   "abi": [
     {
       "constant": false,
@@ -39,6 +39,6 @@ const testContract = {
       "type": "function"
     }
   ],
-  "name": "testContract"
+  "name": "testContract2"
 };
-module.exports = testContract
+module.exports = testContract2
