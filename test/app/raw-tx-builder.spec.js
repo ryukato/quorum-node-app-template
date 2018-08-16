@@ -39,26 +39,13 @@ const validTx = {
 describe('RawTxBuilder spec', () => {
   beforeEach(() => {});
 
-  it('should return raw tx synchronously', () => {
+  it('should return raw tx', () => {
     const rawTxBuilder = new RawTxBuilder(defaultContext);
-    const rawTxData = rawTxBuilder.buildRawTxSync(validTx);
+    const rawTxData = rawTxBuilder.build(validTx);
     console.log(rawTxData);
     expect(rawTxData).to.be.a('object');
     expect(rawTxData).to.be.not.equal(null);
   });
 
-  it('should return raw tx within promise', (done) => {
-    const rawTxBuilder = new RawTxBuilder(defaultContext);
 
-    rawTxBuilder.buildRawTx(validTx)
-    .then(rawTxData => {
-      expect(rawTxData).to.be.a('object');
-      expect(rawTxData).to.be.not.equal(null);
-      console.log(rawTxData);
-      done();
-    })
-    .catch(error => {
-      done(error);
-    });
-  });
 });

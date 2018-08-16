@@ -4,17 +4,7 @@ class RawTxBuilder {
     this.context = context;
   }
 
-  buildRawTx(txData) {
-    return new Promise((resolve, reject) => {
-      try {
-        resolve(this.buildRawTxSync(txData));
-      } catch(error) {
-        reject(error);
-      }
-    });
-  }
-
-  buildRawTxSync(txData) {
+  build(txData) {
     this.validateTxData(txData);
     const value = txData.value ? txData.value: this.context.conf.common.value
     const gas = txData.gas ? txData.gas : this.context.conf.common.gas;
