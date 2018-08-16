@@ -1,19 +1,13 @@
 import chai from 'chai';
 import RawTxBuilder from '../../src/util/raw-tx-builder';
+import FunctionDataEncoder from '../../src/util/func-data-encoder';
+import HexConverter from '../../src/util/hex-converter';
 
 const expect = chai.expect;
 const assert = chai.assert;
 const defaultContext = {
-  functionDataEncoder: {
-    encode: (func, types, args) => {
-      return "";
-    }
-  },
-  hexConverter: {
-    convert: (val) => {
-      return val;
-    }
-  },
+  functionDataEncoder: new FunctionDataEncoder(),
+  hexConverter: new HexConverter(),
   conf: {
     common: {
       gas: 300000,
@@ -36,6 +30,7 @@ const validTx = {
   args: ['test']
 };
 
+
 describe('RawTxBuilder spec', () => {
   beforeEach(() => {});
 
@@ -45,20 +40,5 @@ describe('RawTxBuilder spec', () => {
     console.log(rawTxData);
     expect(rawTxData).to.be.a('object');
     expect(rawTxData).to.be.not.equal(null);
-  });
-
-  it('should return raw tx within promise', (done) => {
-    const rawTxBuilder = new RawTxBuilder(defaultContext);
-
-    rawTxBuilder.buildRawTx(validTx)
-    .then(rawTxData => {
-      expect(rawTxData).to.be.a('object');
-      expect(rawTxData).to.be.not.equal(null);
-      console.log(rawTxData);
-      done();
-    })
-    .catch(error => {
-      done(error);
-    });
   });
 });
