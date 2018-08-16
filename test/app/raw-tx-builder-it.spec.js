@@ -36,7 +36,7 @@ describe('RawTxBuilder spec', () => {
 
   it('should return raw tx synchronously', () => {
     const rawTxBuilder = new RawTxBuilder(defaultContext);
-    const rawTxData = rawTxBuilder.buildRawTxSync(validTx);
+    const rawTxData = rawTxBuilder.build(validTx);
     console.log(rawTxData);
     expect(rawTxData).to.be.a('object');
     expect(rawTxData).to.be.not.equal(null);
