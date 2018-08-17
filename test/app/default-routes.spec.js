@@ -9,6 +9,9 @@ import proxyquire from 'proxyquire';
 import supertest from 'supertest';
 import chai from 'chai';
 
+const expect = chai.expect;
+const assert = chai.assert;
+
 describe('Default routes test', () => {
   let app, request, defaultRouter;
 
@@ -22,6 +25,16 @@ describe('Default routes test', () => {
     defaultRouter = new DefaultRouter({});
     defaultRouter.register(app);
     request = supertest(app);
+  });
+  describe('Fail to register', () => {
+    it('should fail to register routes to app', () => {
+      const DefaultRouter = proxyquire('../../src/routes/default-routes.js', {});
+      defaultRouter = new DefaultRouter({});
+
+      assert.throws(() => {
+        defaultRouter.register(null);
+      }, Error);
+    });
   });
 
   describe('POST / test', () => {

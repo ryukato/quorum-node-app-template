@@ -32,7 +32,7 @@ class RawTxBuilder {
 
   validateTxData(txData) {
     if (txData.nonce === undefined) throw new Error(`Invalid transation data - nonce is required`);
-    if (txData.gas === undefined) throw new Error(`Invalid transation data - gas is required`);
+    // if (txData.gas === undefined) throw new Error(`Invalid transation data - gas is required`);
     // if (!txData.privateKey) throw new Error(`Invalid transation data - privateKey is required`);
     if (!txData.from) throw new Error(`Invalid transation data - from is required`);
     if (!txData.to) throw new Error(`Invalid transation data - to is required`);

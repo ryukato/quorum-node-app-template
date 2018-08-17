@@ -15,6 +15,13 @@ describe('FunctionDataEncoder spec', () => {
     expect(encodedData.startsWith('0x')).to.be.true;
   });
 
+  it('should return encoded data with invalid type', () => {
+    const functionDataEncoder = new FunctionDataEncoder();
+    assert.throws(() => {
+      const encodedData = functionDataEncoder.encode('test', ['invalid_type'], ['test']);
+    }, Error);
+  });
+
   it('should return encoded data with empty types and args', () => {
     const functionDataEncoder = new FunctionDataEncoder();
     const encodedData = functionDataEncoder.encode('test', [], []);

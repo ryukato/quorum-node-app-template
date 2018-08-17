@@ -72,4 +72,19 @@ describe('GreetingRoutes test', () => {
       });
     });
   });
+
+  describe('GET /greet test', () => {
+    it('should return 201', (done) => {
+      request.get('/greet')
+      .set('Accept', 'application/json')
+      .expect(200)
+      .then(res => {
+
+        debug('res body %s', JSON.stringify(res.body));
+        done();
+      }).catch(err => {
+        done(err);
+      });
+    });
+  });
 });
