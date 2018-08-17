@@ -6699,6 +6699,18 @@ web3-shh@1.0.0-beta.35:
     web3-core-subscriptions "1.0.0-beta.35"
     web3-net "1.0.0-beta.35"
 
+web3-ssl-ext-lib@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/web3-ssl-ext-lib/-/web3-ssl-ext-lib-0.1.5.tgz#bf4b4eb9a72275973924dbb6d31e0b1d9b147b9a"
+  dependencies:
+    web3 "^1.0.0-beta.34"
+
+web3-ssl-ext@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/web3-ssl-ext/-/web3-ssl-ext-0.2.2.tgz#b2d54bcb946b1fd318b862ffcb4bc128ba5a5565"
+  dependencies:
+    web3 "^0.20.6"
+
 web3-utils@1.0.0-beta.35, web3-utils@^1.0.0-beta.35:
   version "1.0.0-beta.35"
   resolved "https://registry.yarnpkg.com/web3-utils/-/web3-utils-1.0.0-beta.35.tgz#ced9e1df47c65581c441c5f2af76b05a37a273d7"
@@ -6740,7 +6752,17 @@ web3@^0.19.1:
     xhr2 "*"
     xmlhttprequest "*"
 
-web3@^1.0.0-beta.35:
+web3@^0.20.6:
+  version "0.20.7"
+  resolved "https://registry.yarnpkg.com/web3/-/web3-0.20.7.tgz#1605e6d81399ed6f85a471a4f3da0c8be57df2f7"
+  dependencies:
+    bignumber.js "git+https://github.com/frozeman/bignumber.js-nolookahead.git"
+    crypto-js "^3.1.4"
+    utf8 "^2.1.1"
+    xhr2-cookies "^1.1.0"
+    xmlhttprequest "*"
+
+web3@^1.0.0-beta.34, web3@^1.0.0-beta.35:
   version "1.0.0-beta.35"
   resolved "https://registry.yarnpkg.com/web3/-/web3-1.0.0-beta.35.tgz#6475095bd451a96e50a32b997ddee82279292f11"
   dependencies:
@@ -6978,7 +7000,7 @@ xhr-request@^1.0.1:
     url-set-query "^1.0.0"
     xhr "^2.0.4"
 
-xhr2-cookies@1.1.0:
+xhr2-cookies@1.1.0, xhr2-cookies@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/xhr2-cookies/-/xhr2-cookies-1.1.0.tgz#7d77449d0999197f155cb73b23df72505ed89d48"
   dependencies:
