@@ -19,7 +19,7 @@ describe('Api Server test', () => {
   console.log('routers: ', routers);
   it('should create server', () => {
     const apiServer = new AppServer();
-    apiServer.initApp({ port: 3000 }, routers);
+    apiServer.initApp({ port: 3000 }, routers, []);
 
     setTimeout(() => {
       console.log('server isRunning1: ', apiServer.isRunning());

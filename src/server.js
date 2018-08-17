@@ -21,6 +21,7 @@ class AppServer {
   }
 
   stopServer() {
+    logger.info("Server is shutting-down");
     this.server.close();
   }
 
@@ -129,7 +130,7 @@ class AppServer {
         throw error;
       }
 
-      var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+      var bind = typeof this.config.port === 'string' ? 'Pipe ' + this.config.port : 'Port ' + this.config.port;
 
       // handle specific listen errors with friendly messages
       switch (error.code) {
