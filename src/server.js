@@ -28,7 +28,7 @@ class AppServer {
     return this.server.listening;
   }
 
-  initApp(config, routers) {
+  initApp(config, routers, interceptors) {
     logger.info(`Init Application with configuration: ${JSON.stringify(config, null, 4)}`);
     this.config = config;
     this.routers = [...routers];
@@ -36,6 +36,8 @@ class AppServer {
     this.configMorganLogger(config);
 
     this.configRateLimit(config);
+
+    this.registerInterceptors(this.config, this.app, interceptors);
 
     this.registerRoutesToApp(this.config, this.app, this.routers);
     this.registerErrorHandler(this.config, this.app);
@@ -86,10 +88,18 @@ class AppServer {
     }));
   }
 
+  registerInterceptors(config, app, interceptors) {
+    if (interceptors && interceptors.length > 0) {
+      interceptors.forEach((interceptor) => {
+        Reflect.construct(interceptor, [config]).register(app);
+      });
+    }
+  }
+
   registerRoutesToApp(config, app, routers) {
     routers.forEach((route) => {
       const router = Reflect.construct(route, [config]);
-      router.register(app)
+      router.register(app);
     });
   }
 

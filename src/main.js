@@ -1,6 +1,8 @@
 import AppServer from './server.js';
 import DefaultRouter from './routes/default-routes.js';
+import AuthInterceptor from './interceptors/auth-interceptor';
 
+const interceptors = [AuthInterceptor];
 const routers = [DefaultRouter];
 const apiServer = new AppServer();
 const config = require('./conf/configuration.js');
@@ -21,5 +23,5 @@ const env = (_config) => {
   return profileConfig;
 };
 
-apiServer.initApp(env(config), routers);
+apiServer.initApp(env(config), routers, interceptors);
 apiServer.startServer();
