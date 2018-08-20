@@ -71,4 +71,31 @@ describe('Default routes test', () => {
 
   });
 
+  describe('GET / Error test', () => {
+    it('should return 404', (done) => {
+      request.get('/404')
+      .set('Accept', 'application/json')
+      .expect(404)
+      .then(res => {
+        debug('res body %s', JSON.stringify(res.body));
+        done();
+      }).catch(err => {
+        done(err);
+      });
+    });
+
+    it('should return 404', (done) => {
+      request.post('/404')
+      .set('Accept', 'application/json')
+      .expect(404)
+      .then(res => {
+        debug('res body %s', JSON.stringify(res.body));
+        done();
+      }).catch(err => {
+        done(err);
+      });
+    });
+
+  });
+
 });
